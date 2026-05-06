@@ -72,7 +72,7 @@ const Hero = () => {
                 <motion.span 
                   key={i}
                   variants={wordVariants}
-                  className="title-font text-[clamp(2.8rem,8vw,6.5rem)] font-bold tracking-tighter leading-[0.9]"
+                  className="title-font text-[clamp(2.5rem,7.2vw,5.85rem)] font-bold tracking-tighter leading-[0.9]"
                 >
                   {word}
                 </motion.span>
@@ -84,7 +84,7 @@ const Hero = () => {
                 <motion.span 
                   key={i}
                   variants={wordVariants}
-                  className={`title-font text-[clamp(2.8rem,8vw,6.5rem)] font-bold tracking-tighter leading-[0.9] ${word === 'Prime.' ? 'text-brand' : ''}`}
+                  className={`title-font text-[clamp(2.5rem,7.2vw,5.85rem)] font-bold tracking-tighter leading-[0.9] ${word === 'Prime.' ? 'text-brand' : ''}`}
                   style={word === 'Live' ? { WebkitTextStroke: '2px #111', color: 'transparent' } : {}}
                 >
                   {word}

@@ -1,35 +1,64 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Sun, Moon, Zap, Play, Pause } from 'lucide-react';
 
 const InteractiveDemo = () => {
   const [isCinemaMode, setIsCinemaMode] = useState(false);
+  const forwardVideoRef = useRef(null);
+  const reverseVideoRef = useRef(null);
+  const hasInteracted = useRef(false);
+
+  useEffect(() => {
+    const fwVideo = forwardVideoRef.current;
+    const rvVideo = reverseVideoRef.current;
+    if (!fwVideo || !rvVideo) return;
+
+    if (isCinemaMode) {
+      hasInteracted.current = true;
+      rvVideo.pause();
+      
+      // Calculate where to start the forward video if interrupted
+      if (rvVideo.currentTime > 0 && rvVideo.duration) {
+        fwVideo.currentTime = Math.max(0, fwVideo.duration - rvVideo.currentTime);
+      } else if (fwVideo.currentTime >= fwVideo.duration || fwVideo.currentTime === 0) {
+        fwVideo.currentTime = 0;
+      }
+      
+      fwVideo.play().catch(e => console.log('Video play interrupted', e));
+    } else {
+      fwVideo.pause();
+      if (hasInteracted.current) {
+        // Calculate where to start the reverse video if interrupted
+        if (fwVideo.currentTime > 0 && fwVideo.duration) {
+          rvVideo.currentTime = Math.max(0, rvVideo.duration - fwVideo.currentTime);
+        } else if (rvVideo.currentTime >= rvVideo.duration || rvVideo.currentTime === 0) {
+          rvVideo.currentTime = 0;
+        }
+        
+        rvVideo.play().catch(e => console.log('Video play interrupted', e));
+      }
+    }
+  }, [isCinemaMode]);
 
   return (
     <section className="py-24 px-6 bg-black relative overflow-hidden">
-      {/* Background Room Image - Transitioning between Day and Cinema */}
+      {/* Background Room Video - Transitioning between Day and Cinema */}
       <div className="absolute inset-0 transition-all duration-1000">
-        <motion.img 
-          initial={false}
-          animate={{ 
-            opacity: isCinemaMode ? 0 : 1,
-            scale: isCinemaMode ? 1.05 : 1
-          }}
-          transition={{ duration: 1.5 }}
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80"
-          className="absolute inset-0 w-full h-full object-cover"
-          alt="Day mode"
+        <video
+          ref={forwardVideoRef}
+          src="/cinema-transition.mp4"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${isCinemaMode || !hasInteracted.current ? 'opacity-100' : 'opacity-0'}`}
+          muted
+          playsInline
+          disablePictureInPicture
         />
-        <motion.img 
-          initial={false}
-          animate={{ 
-            opacity: isCinemaMode ? 1 : 0,
-            scale: isCinemaMode ? 1 : 1.05
-          }}
-          transition={{ duration: 1.5 }}
-          src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=2000&q=80"
-          className="absolute inset-0 w-full h-full object-cover"
-          alt="Cinema mode"
+        <video
+          ref={reverseVideoRef}
+          src="/logo/SVG/cinema-transition-reverse.mp4"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${!isCinemaMode && hasInteracted.current ? 'opacity-100' : 'opacity-0'}`}
+          muted
+          playsInline
+          disablePictureInPicture
         />
         {/* Overlays */}
         <div className={`absolute inset-0 transition-colors duration-1000 ${isCinemaMode ? 'bg-brand/10' : 'bg-transparent'}`} />
