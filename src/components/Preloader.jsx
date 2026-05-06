@@ -39,7 +39,7 @@ const Preloader = ({ onComplete }) => {
         <span>Primezen OS</span>
       </div>
 
-      <div className="relative flex items-end justify-center overflow-hidden mix-blend-difference">
+      <div className="relative flex items-end justify-center overflow-hidden">
         <motion.div
           initial={{ y: "100%" }}
           animate={{ y: 0 }}
