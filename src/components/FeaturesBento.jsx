@@ -72,31 +72,34 @@ const FeaturesBento = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[300px]"
         >
           {/* Featured Bento Card — Touch Panel Control */}
           <motion.div variants={itemVariants} className="lg:col-span-2 lg:row-span-2 relative overflow-hidden rounded-[32px] bg-white shadow-xl shadow-black/5 group hover:shadow-2xl hover:shadow-black/10 transition-all duration-500">
-            <img 
-              src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1200&q=80"
-              alt="Modern smart home interior with ambient lighting"
-              className="absolute inset-0 w-full h-full object-cover opacity-90 img-zoom"
+            <video 
+              src="/color.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover opacity-90"
             />
-            {/* Soft white gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
+            {/* Dark gradient for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
             
             <div className="relative h-full p-10 flex flex-col justify-end">
-              <div className="w-16 h-16 rounded-2xl bg-white shadow-lg flex items-center justify-center mb-auto group-hover:scale-110 transition-transform duration-500">
-                <DrawingIcon className="w-8 h-8 text-brand">M13 2L3 14h9l-1 8 10-12h-9l1-8z</DrawingIcon>
+              <div className="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-md shadow-lg flex items-center justify-center mb-auto group-hover:scale-110 transition-transform duration-500 border border-white/20">
+                <DrawingIcon className="w-8 h-8 text-white">M13 2L3 14h9l-1 8 10-12h-9l1-8z</DrawingIcon>
               </div>
               <div>
-                <h3 className="title-font text-4xl font-bold mb-3 text-black tracking-tight">One Panel, Many Scenes</h3>
-                <p className="text-text-secondary text-lg max-w-lg font-medium leading-relaxed">Create room-ready controls for lights, fans, curtains, AC, and mood scenes from a refined glass-finish interface.</p>
+                <h3 className="title-font text-4xl font-bold mb-3 text-white tracking-tight">One Panel, Many Scenes</h3>
+                <p className="text-white/70 text-lg max-w-lg font-medium leading-relaxed">Create room-ready controls for lights, fans, curtains, AC, and mood scenes from a refined glass-finish interface.</p>
               </div>
             </div>
           </motion.div>
 
           {/* Premium Finish */}
-          <motion.div variants={itemVariants} className="bg-white rounded-[32px] p-8 flex flex-col justify-end group hover:-translate-y-2 hover:shadow-xl shadow-md shadow-black/5 transition-all duration-500 relative overflow-hidden border border-black/5">
+          <motion.div variants={itemVariants} className="lg:col-span-2 bg-white rounded-[32px] p-8 flex flex-col justify-end group hover:-translate-y-2 hover:shadow-xl shadow-md shadow-black/5 transition-all duration-500 relative overflow-hidden border border-black/5">
             <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-green-100 transition-colors" />
             <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-auto relative z-10 group-hover:bg-green-50 transition-colors">
               <DrawingIcon className="w-7 h-7 text-black group-hover:text-green-600 transition-colors">M6 7H18V19H6V7ZM6 7V5H9M18 7V5H15M15 5V3H9V5</DrawingIcon>
@@ -108,7 +111,7 @@ const FeaturesBento = () => {
           </motion.div>
 
           {/* Custom Icons */}
-          <motion.div variants={itemVariants} className="bg-white rounded-[32px] p-8 flex flex-col justify-end group hover:-translate-y-2 hover:shadow-xl shadow-md shadow-black/5 transition-all duration-500 relative overflow-hidden border border-black/5">
+          <motion.div variants={itemVariants} className="lg:col-span-1 bg-white rounded-[32px] p-8 flex flex-col justify-end group hover:-translate-y-2 hover:shadow-xl shadow-md shadow-black/5 transition-all duration-500 relative overflow-hidden border border-black/5">
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-blue-100 transition-colors" />
             <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-auto relative z-10 group-hover:bg-blue-50 transition-colors">
               <DrawingIcon className="w-7 h-7 text-black group-hover:text-blue-600 transition-colors">M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z</DrawingIcon>
@@ -120,7 +123,7 @@ const FeaturesBento = () => {
           </motion.div>
 
           {/* App & Voice */}
-          <motion.div variants={itemVariants} className="bg-white rounded-[32px] p-8 flex flex-col justify-end group hover:-translate-y-2 hover:shadow-xl shadow-md shadow-black/5 transition-all duration-500 relative overflow-hidden lg:col-span-1 md:col-span-2 border border-black/5">
+          <motion.div variants={itemVariants} className="lg:col-span-1 bg-white rounded-[32px] p-8 flex flex-col justify-end group hover:-translate-y-2 hover:shadow-xl shadow-md shadow-black/5 transition-all duration-500 relative overflow-hidden border border-black/5">
             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-purple-100 transition-colors" />
             <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-auto relative z-10 group-hover:bg-purple-50 transition-colors">
               <DrawingIcon className="w-7 h-7 text-black group-hover:text-purple-600 transition-colors">M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01</DrawingIcon>

@@ -94,11 +94,13 @@ const TouchPanelDetails = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
           <MotionCard className="rounded-[30px] overflow-hidden bg-black text-white min-h-[420px] relative shadow-2xl shadow-black/15">
-            <img
-              src="https://www.primezen.in/wp-content/uploads/2025/03/Touch-Panel-Switch.webp"
-              alt="Primezen Zen Touch Panel switch"
+            <video
+              src="/table.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
               className="absolute inset-0 w-full h-full object-cover opacity-70"
-              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
             <div className="relative z-10 h-full p-7 md:p-9 flex flex-col justify-end">
@@ -131,31 +133,50 @@ const TouchPanelDetails = () => {
         </div>
 
         <div className="mb-16">
-          <div className="max-w-3xl mb-8">
-            <span className="inline-block text-brand text-sm font-bold tracking-widest uppercase mb-4">Personalized to Your Touch</span>
-            <h2 className="title-font text-[clamp(2.3rem,4vw,4rem)] font-bold tracking-tight leading-[1.04] text-black mb-5">
-              From morning routines to evening scenes.
-            </h2>
-            <p className="text-lg text-text-secondary leading-relaxed font-medium">
-              Use Zen Touch Panels to create room-level controls for the functions your family actually uses every day.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+            {/* Left Side — Text + Cards */}
+            <div className="lg:col-span-8">
+              <div className="max-w-3xl mb-8">
+                <span className="inline-block text-brand text-sm font-bold tracking-widest uppercase mb-4">Personalized to Your Touch</span>
+                <h2 className="title-font text-[clamp(2.3rem,4vw,4rem)] font-bold tracking-tight leading-[1.04] text-black mb-5">
+                  From morning routines to evening scenes.
+                </h2>
+                <p className="text-lg text-text-secondary leading-relaxed font-medium">
+                  Use Zen Touch Panels to create room-level controls for the functions your family actually uses every day.
+                </p>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {homeControls.map((control, index) => {
-              const Icon = control.icon;
-              return (
-                <MotionCard
-                  key={control.title}
-                  delay={index * 0.04}
-                className="rounded-[24px] border border-black/5 bg-white p-6 shadow-md shadow-black/5"
-                >
-                  <Icon className="text-brand mb-5" size={30} />
-                  <h3 className="title-font text-2xl font-bold text-black mb-3">{control.title}</h3>
-                  <p className="text-text-secondary leading-relaxed font-medium">{control.text}</p>
-                </MotionCard>
-              );
-            })}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {homeControls.map((control, index) => {
+                  const Icon = control.icon;
+                  return (
+                    <MotionCard
+                      key={control.title}
+                      delay={index * 0.04}
+                    className="rounded-[24px] border border-black/5 bg-white p-6 shadow-md shadow-black/5"
+                    >
+                      <Icon className="text-brand mb-5" size={30} />
+                      <h3 className="title-font text-2xl font-bold text-black mb-3">{control.title}</h3>
+                      <p className="text-text-secondary leading-relaxed font-medium">{control.text}</p>
+                    </MotionCard>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Right Side — Portrait Video */}
+            <MotionCard className="lg:col-span-4 rounded-[30px] overflow-hidden shadow-2xl shadow-black/10 sticky top-24">
+              <div style={{ aspectRatio: '2/3' }}>
+                <video
+                  src="/rgb.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </MotionCard>
           </div>
         </div>
 

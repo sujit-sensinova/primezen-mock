@@ -21,6 +21,7 @@ import MarqueeBanner from './components/MarqueeBanner';
 import Preloader from './components/Preloader';
 import MagneticText from './components/ui/MagneticText';
 import InteractiveDemo from './components/InteractiveDemo';
+import CurvedVideoCarousel from './components/CurvedVideoCarousel';
 import BackToTop from './components/BackToTop';
 import { useSound } from './hooks/useSound';
 
@@ -129,6 +130,7 @@ function App() {
               <InteractiveDemo />
               <MarqueeBanner />
               <Gallery />
+              <CurvedVideoCarousel soundEnabled={soundEnabled} />
               <Testimonials />
               
               {/* Added solid white backgrounds for sections below the dark theme journey to ensure readability */}
