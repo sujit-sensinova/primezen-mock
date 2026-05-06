@@ -93,12 +93,12 @@ const About = () => {
             >
               <div className="overflow-hidden flex flex-wrap gap-x-4">
                 {["Redefining", "Luxury"].map((word, i) => (
-                  <motion.span key={i} variants={wordVariants} className="title-font text-[clamp(2.5rem,4vw,4.5rem)] font-bold tracking-tight leading-[1.05] text-black inline-block origin-bottom">{word}</motion.span>
+                  <motion.span key={i} variants={wordVariants} className="title-font text-[clamp(2rem,3.5vw,3.8rem)] font-bold tracking-tight leading-[1.05] text-black inline-block origin-bottom">{word}</motion.span>
                 ))}
               </div>
               <div className="overflow-hidden flex flex-wrap gap-x-4">
                 {["Living", "in", "India"].map((word, i) => (
-                  <motion.span key={i} variants={wordVariants} className="title-font text-[clamp(2.5rem,4vw,4.5rem)] font-bold tracking-tight leading-[1.05] text-black inline-block origin-bottom">{word}</motion.span>
+                  <motion.span key={i} variants={wordVariants} className="title-font text-[clamp(2rem,3.5vw,3.8rem)] font-bold tracking-tight leading-[1.05] text-black inline-block origin-bottom">{word}</motion.span>
                 ))}
               </div>
             </motion.div>

@@ -46,20 +46,20 @@ const ProjectModal = ({ project, onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-white/95 backdrop-blur-2xl overflow-y-auto"
+      className="fixed inset-0 z-[100] bg-white/95 backdrop-blur-2xl overflow-y-auto"
     >
-      <div className="absolute top-10 right-10 z-10">
+      <div className="fixed top-6 right-6 md:top-10 md:right-10 z-[110]">
         <Magnetic strength={0.5}>
           <button 
             onClick={onClose}
-            className="w-16 h-16 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform shadow-2xl"
+            className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-black text-white flex items-center justify-center hover:scale-110 transition-transform shadow-2xl"
           >
-            <X size={32} />
+            <X size={28} className="md:w-8 md:h-8" />
           </button>
         </Magnetic>
       </div>
 
-      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 py-20">
+      <div className="max-w-7xl w-full mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 py-24 md:py-32 min-h-screen">
         <motion.div 
           layoutId={`image-${project.id}`}
           className="rounded-[40px] overflow-hidden shadow-2xl h-fit sticky top-20"
