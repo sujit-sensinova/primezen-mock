@@ -20,8 +20,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-14">
           <div className="lg:col-span-2">
-            <a href="#" className="text-3xl font-bold tracking-tight block mb-6" aria-label="Primezen Home">
-              Prime<span className="text-brand">zen</span>
+            <a href="#" className="block mb-6" aria-label="Primezen Home">
+              <img src="/logo/SVG/logo-dark.svg" alt="Primezen" className="h-10 w-auto" />
             </a>
             <p className="text-text-secondary max-w-sm leading-relaxed text-lg font-medium">
               Premium Zen Touch Panels and wireless automation designed to make everyday control cleaner, simpler, and more intuitive.
